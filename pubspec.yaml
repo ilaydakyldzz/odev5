@@ -1,0 +1,35 @@
+name: odev5
+description: "Basit bir ürün kataloğu uygulaması."
+publish_to: 'none' # Bu satırı paketinizi pub.dev'de yayınlamak isterseniz kaldırın.
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Daha şık fontlar kullanmak için.
+  google_fonts: ^6.2.1
+
+  # Flutter projelerinde varsayılan olarak gelen iOS stili ikonlar.
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # Kod stilini ve olası hataları denetlemek için önerilen linter kuralları.
+  flutter_lints: ^3.0.0
+
+# Flutter'a özel ayarlar bu bölümde yapılır.
+flutter:
+  # Material Design ikonlarını ve bileşenlerini kullanacağımızı belirtir.
+  uses-material-design: true
+
+  # Eğer projenize resim veya font gibi varlıklar eklemek isterseniz,
+  # aşağıdaki gibi bölümleri aktif hale getirebilirsiniz.
+  # assets:
+  #   - images/a_dot_burr.jpeg
