@@ -1,16 +1,42 @@
-# odev5
+# Makyaj Dünyası - Ürün Katalog ve Sepet Uygulaması
 
-A new Flutter project.
+Bu proje, Mobil Programlama dersi kapsamında Flutter ile geliştirilmiştir. Dinamik rotalama, sepet yönetimi, state paylaşımı ve özel animasyonlar içeren bir e-ticaret vitrin simülasyonudur.
 
-## Getting Started
+## 🚀 Projeyi Çalıştırma
 
-This project is a starting point for a Flutter application.
+Projeyi yerel ortamınızda çalıştırmak için terminalde şu komutları sırasıyla uygulayın:
 
-A few resources to get you started if this is your first Flutter project:
+1.  Gerekli kütüphaneleri yükleyin:
+    ```bash
+    flutter pub get
+    ```
+2.  Uygulamayı başlatın:
+    ```bash
+    flutter run
+    ```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 📱 Desteklenen Rotalar ve Özellikler
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Uygulama **Named Routes** ve **Advanced Routing** (Gelişmiş Rotalama) tekniklerini kullanır:
+
+* **`/` (Ana Sayfa):** Ürünlerin listelendiği grid ekranı. Ürüne tıklandığında detay sayfasına yönlendirir ve geri dönüşte "Sepete Eklendi" bilgisini dinler.
+* **`/detail`:** Ürün detay sayfası. Argüman olarak `Product` nesnesi alır.
+* **`/cart`:** Sepetim sayfası. Eklenen ürünleri listeler ve listeden çıkarma imkanı sunar.
+* **`/product/{id}`:** Dinamik Rota (Deep Link Simülasyonu). Örneğin `/product/42` adresine gidildiğinde, 42 ID'li ürünü bulup detay sayfasını açar.
+* **404 Not Found:** Tanımlı olmayan bir rotaya (örn: `/test`) gidildiğinde özel hata sayfası gösterilir.
+
+## 🛠 Mimari Yaklaşım
+
+Projede temiz kod prensiplerine uygun, modüler bir yapı tercih edilmiştir:
+
+1.  **Navigasyon ve Veri İletişimi:**
+    * `Navigator.pushNamed` ile sayfalar arası geçiş yapılır.
+    * **Geriye Değer Döndürme:** Detay sayfasından `Navigator.pop(context, 'mesaj')` ile ana sayfaya veri taşınır ve kullanıcıya `SnackBar` ile bildirim gösterilir.
+    * `onGenerateRoute` ile URL tabanlı dinamik yönlendirme sağlanmıştır.
+
+2.  **State Yönetimi:**
+    * Sepet verisi (`cartItems`), `product_model.dart` içinde global bir liste olarak tutularak basit ve etkili bir state yönetimi sağlanmıştır.
+
+3.  **UI/UX:**
+    * **Hero Animation:** Liste ve detay sayfası arasındaki resim geçişlerinde görsel süreklilik sağlanmıştır.
+    * **Google Fonts:** Modern tipografi kullanılmıştır.
